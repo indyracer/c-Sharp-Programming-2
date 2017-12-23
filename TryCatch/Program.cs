@@ -28,6 +28,7 @@ namespace TryCatch
                 Console.WriteLine("\nMaximum: " + Int16.MaxValue);
             }
 
+            //to keep window open
             Console.ReadKey();
         }
     }
