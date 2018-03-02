@@ -26,5 +26,48 @@ namespace Universal
         {
             this.InitializeComponent();
         }
+
+        private void BtnPick_Click(object sender, RoutedEventArgs e)
+        {
+            Random rnd = new Random();
+            int[] seq = new int[59];
+            for(int i = 1; i < 60; i++)
+            {
+                seq[i - 1] = i;
+            }
+            for(int i = 0; i < 59; i++)
+            {
+                int j = (rnd.Next() % 59);
+                int k = seq[i];
+                seq[i] = seq[j];
+                seq[j] = k;
+            }
+            //statements from steps 4 and 5
+            textBlock1.Text = seq[1].ToString();
+            textBlock2.Text = seq[2].ToString();
+            textBlock3.Text = seq[3].ToString();
+            textBlock4.Text = seq[4].ToString();
+            textBlock5.Text = seq[5].ToString();
+            textBlock6.Text = seq[6].ToString();
+
+            //set button state
+            BtnPick.IsEnabled = false;
+            BtnReset.IsEnabled = true;
+        }
+
+        private void BtnReset_Click(object sender, RoutedEventArgs e)
+        {
+            //assign strings to textblock compenents
+            textBlock1.Text = "...";
+            textBlock2.Text = "...";
+            textBlock3.Text = "...";
+            textBlock4.Text = "...";
+            textBlock5.Text = "...";
+            textBlock6.Text = "...";
+
+            //set button state
+            BtnPick.IsEnabled = true;
+            BtnReset.IsEnabled = false;
+        }
     }
 }
